@@ -7,17 +7,16 @@ import { ref, watch } from 'vue'
 const dbRef = firebaseRef(database)
 
 const getCars = async () => {
-  let data = []
   try {
     const snapshot = await get(child(dbRef, '/cars'))
     if (snapshot.exists()) {
-      data = snapshot.val()
+      return snapshot.val()
     }
-    return snapshot.val()
+    return []
   } catch (error) {
     console.error(error)
+    return []
   }
-  return data
 }
 
 const useCars = () => {
