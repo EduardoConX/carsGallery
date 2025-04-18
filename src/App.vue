@@ -52,7 +52,7 @@ const handlePageChange = (pageNumber: number) => {
                 </div>
                 <div class="flex items-center text-gray-400">
                   <span class="w-24">Color:</span>
-                  <span class="text-white">Red</span>
+                  <span class="text-white">{{ car.color }}</span>
                 </div>
               </div>
             </div>
