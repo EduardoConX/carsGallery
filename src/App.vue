@@ -6,7 +6,7 @@ import PaginationButton from './components/PaginationButton.vue'
 const { cars, isLoading, error, isError } = useCars()
 const searchQuery = ref('')
 const currentPage = ref(1)
-const carsPerPage = 2
+const carsPerPage = 4
 const filteredCars = computed(() => {
   return cars.value.filter((car) =>
     car.name.toLowerCase().includes(searchQuery.value.toLowerCase()),
@@ -21,6 +21,7 @@ const currentCars = computed(() => {
 
 const totalPages = computed(() => Math.ceil(filteredCars.value.length / carsPerPage))
 const handlePageChange = (pageNumber: number) => {
+  window.scrollTo(0, 0)
   currentPage.value = pageNumber
 }
 </script>
